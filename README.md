@@ -14,8 +14,8 @@ Notre choix de jeu s'est arrêté sur le Pacman du cours "Intro to AI (CS188)" d
 
 
 L'Objectif: entraîner un agent à evoluer de façon optimale dans un environnment.
-Comment?
-La méthode consiste à attribuer à chaque état du système Agent + Environnement une valeur qui correspond a l'esperance du score que l'agent peut atteindre dans le futur à partir de cet état.
+
+Comment? La méthode consiste à attribuer à chaque état du système Agent + Environnement une valeur qui correspond à l'espérance du score que l'agent peut atteindre dans le futur à partir de cet état.
 
 
 La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours de UC Berkeley. 
