@@ -1,6 +1,26 @@
-## Welcome to GitHub Pages
+## Apprendre l'apprentissage renforce avec le Pacman d'UC Berkeley
 
-You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+<p align="center">
+  <img src="http://ai.berkeley.edu/images/pacman_game.gif" alt="pacman_gif"/>
+</p>
+
+L'ambition de ce projet était de se familiariser avec les méthodes du reinforcement learning (RL) en entrainant un "agent" à jouer à un jeu simple.
+On a utilisé le livre de Sutton et Barto, "Reinforcement Learning: an introduction" (http://incompleteideas.net/book/bookdraft2018jan1.pdf), pour s'initier à la théorie et aux méthodes de RL.
+Notre choix s'est arrêté sur le Pacman du cours "Intro to AI (CS188)" de UC Berkeley (http://ai.berkeley.edu/reinforcement.html) pour sa qualité pedagogique: 
+-le développement des programmes et algorithmes de la partie reinforcement learning suit bien l'élaboration des concepts et méthodes du livre de Barto et Sutton.
+-les programmes sont en python en style objet orienté: La structure hiérarchique des classes reflètent bien l'organisation et l'interdépendence des concepts dans la théorie.
+-le language python permet d'utiliser les packages keras et tensorflow pour la création de réseaux de neurones
+
+La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours de UC Berkeley. Dans une premiere etape: se familiariser avec les concepts de mdp et dynamic programming:
+mdp (markov decision process) 
+
+
+Objectif du Reinforcement Learning: entraîner un agent à evoluer de façon optimale dans un environnment.
+
+comment ça marche RL?
+RL consiste à attribuer à tous les états de l'agent dans l'environnement une valeur V(s) suivant son potentiel de générer un bon score dans le futur.
+
+A la base il y a MDP (Markov Decision process), le MDP conceptualise l'interaction d'un agent avec son environnement qui consiste en la succession d'état (S=State), action (A)et Recompense (R=reward), donnant lieu a la serie S0,A0,R1,S1,A1 ...' En outre, le MDP suppose l'existence de probabilites de transition entre les etats et des possibilites de recompense suivant les actions de l'agent.p(s',r|s,a). MDP comprend aussi la definition d'un facteur de devaluation limitant l''importance des recompenses dans un futurr lointain.' Point important, la valeur d'un etat determine par un MDP ne prend en compte que l'etat present et futur du systeme (the future is independent of the past given the present: c'est l'idee qu'on accumule l'experience dans la valeur de l'etat ie de la qvalues.)'
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
@@ -22,6 +42,10 @@ class="cmmi-10">E</span><sub><span
 class="cmmi-7">&#x03C0;</span></sub><img 
 src="testequ0x.png" alt="[Gt|St = s]"  class="left" align="middle">  
 </body></html> 
+
+
+
+You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
