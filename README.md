@@ -1,7 +1,7 @@
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-{::nomarkdown}
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
 <html > 
@@ -24,8 +24,6 @@ class="cmmi-7">&#x03C0;</span></sub><img
 src="testequ0x.png" alt="[Gt|St = s]"  class="left" align="middle">  
 </body></html> 
 
-
-{:/}
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Markdown
