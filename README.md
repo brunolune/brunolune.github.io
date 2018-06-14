@@ -22,7 +22,9 @@ L'Objectif: entraîner un agent à evoluer de façon optimale dans un environnme
 Comment?
 RL consiste à attribuer à chaque état du système Agent + Environnement une valeur qui reflète le potentiel pour l'agent de générer un score dans le futur à partir de cet état.
 
-A la base il y a MDP (Markov Decision process), le MDP conceptualise l'interaction d'un agent avec son environnement qui consiste en la succession d'état (S=State), action (A)et Recompense (R=reward), donnant lieu a la serie S0,A0,R1,S1,A1 ...' En outre, le MDP suppose l'existence de probabilites de transition entre les etats et des possibilites de recompense suivant les actions de l'agent.p(s',r|s,a). MDP comprend aussi la definition d'un facteur de devaluation limitant l''importance des recompenses dans un futurr lointain.' Point important, la valeur d'un etat determine par un MDP ne prend en compte que l'etat present et futur du systeme (the future is independent of the past given the present: c'est l'idee qu'on accumule l'experience dans la valeur de l'etat ie de la qvalues.)'
+![Principe](https://cdn-images-1.medium.com/max/1600/1*Z2yMvuQ1-t5Ol1ac_W4dOQ.png "Principe")
+
+A la base il y a MDP (Markov Decision process), le MDP conceptualise l'interaction d'un agent avec son environnement qui consiste en la succession d'état (S=State), action (A)et Recompense (R=reward), donnant lieu a la serie S0,A0,R1,S1,A1 ...' En outre, le MDP suppose l'existence de probabilites de transition entre les etats et des possibilites de recompense suivant les actions de l'agent.p(s',r|s,a). MDP comprend aussi la definition d'un facteur de devaluation limitant l''importance des recompenses dans un futurr lointain.' Point important, la valeur d'un etat determine par un MDP ne prend en compte que l'etat present et futur du systeme (the future is independent of the past given the present: c'est l'idee qu'on accumule l'experience dans la valeur de l'etat ie de la qvalues.
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
@@ -44,7 +46,6 @@ class="cmmi-10">E</span><sub><span
 class="cmmi-7">&#x03C0;</span></sub><img 
 src="testequ0x.png" alt="[Gt|St = s]"  class="left" align="middle">  
 </body></html> 
-
 
 
 You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
