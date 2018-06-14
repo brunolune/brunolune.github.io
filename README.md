@@ -8,23 +8,27 @@ L'ambition de ce projet était de se familiariser avec les méthodes du reinforc
 On a utilisé le livre de Sutton et Barto, "Reinforcement Learning: an introduction" (http://incompleteideas.net/book/bookdraft2018jan1.pdf), pour s'initier à la théorie et aux méthodes de RL.
 Notre choix de jeu s'est arrêté sur le Pacman du cours "Intro to AI (CS188)" de UC Berkeley (http://ai.berkeley.edu/reinforcement.html) pour ses qualités pédagogiques: 
 - le développement des programmes et algorithmes de la partie reinforcement learning suit bien l'élaboration des concepts et méthodes du livre de Barto et Sutton.
-- les programmes sont en python en style objet orienté: La structure hiérarchique des classes reflètent bien l'organisation et l'interdépendence des concepts dans la théorie.
+- les programmes sont en python en style objet orienté: La structure hiérarchique des classes reflètent l'organisation et l'interdépendence des concepts dans la théorie.
 - le language python permet d'utiliser les packages keras et tensorflow pour la création de réseaux de neurones
 
 
 
+L'Objectif: entraîner un agent à evoluer de façon optimale dans un environnment.
+Comment?
+La méthode consiste à attribuer à chaque état du système Agent + Environnement une valeur qui correspond a l'esperance du score que l'agent peut atteindre dans le futur à partir de cet état.
 
 
 La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours de UC Berkeley. 
-Dans une première étape; on se familiarise avec les concepts de mdp (markov decision process) et dynamic programming:
+Dans une première étape; on se familiarise avec les concepts de Markov Decision Process (MDP) et Dynamic Programming (DP). Ces methodes sont utiles lorsqu'on a une parfaite connaissance du systeme. le MDP conceptualise l'interaction d'un agent avec son environnement. L'interaction agent-environnement est definie par des transitions entre états (S=State), suivant des choix d'action (A=Action) de l'agent et (et la reponse de l'environnement) s'ensuivant le gain des recompense (R=reward), donnant lieu a des series S0,A0,R1,S1,A1 ... En outre, le MDP suppose l'existence de probabilites de transition entre les etats et des possibilites de recompense suivant les actions de l'agent.p(s',r|s,a). MDP comprend aussi la definition d'un facteur de devaluation limitant l''importance des recompenses dans un futurr lointain.' Point important, la valeur d'un etat determine par un MDP ne prend en compte que l'etat present et futur du systeme (the future is independent of the past given the present: c'est l'idee qu'on accumule l'experience dans la valeur de l'etat ie de la qvalues.
 
-L'Objectif: entraîner un agent à evoluer de façon optimale dans un environnment.
-Comment?
-RL consiste à attribuer à chaque état du système Agent + Environnement une valeur qui reflète le potentiel pour l'agent de générer un score dans le futur à partir de cet état.
+
+
+
+
 
 ![Principe](https://cdn-images-1.medium.com/max/1600/1*Z2yMvuQ1-t5Ol1ac_W4dOQ.png "Principe")
 
-A la base il y a MDP (Markov Decision process), le MDP conceptualise l'interaction d'un agent avec son environnement qui consiste en la succession d'état (S=State), action (A)et Recompense (R=reward), donnant lieu a la serie S0,A0,R1,S1,A1 ...' En outre, le MDP suppose l'existence de probabilites de transition entre les etats et des possibilites de recompense suivant les actions de l'agent.p(s',r|s,a). MDP comprend aussi la definition d'un facteur de devaluation limitant l''importance des recompenses dans un futurr lointain.' Point important, la valeur d'un etat determine par un MDP ne prend en compte que l'etat present et futur du systeme (the future is independent of the past given the present: c'est l'idee qu'on accumule l'experience dans la valeur de l'etat ie de la qvalues.
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd">  
