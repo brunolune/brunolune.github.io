@@ -18,23 +18,24 @@ L'Objectif: entraîner un agent à evoluer de façon optimale dans un environnme
 Comment? La méthode consiste à attribuer à chaque état du système Agent-Environnement une valeur qui correspond à l'espérance du score que l'agent peut atteindre dans le futur à partir de cet état.
 
 
-La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours de UC Berkeley. 
-Dans une première étape; on se familiarise avec les concepts de Markov Decision Process (MDP) et Dynamic Programming (DP). Ces méthodes sont utiles lorsqu'on a une parfaite connaissance du système. le MDP conceptualise l'interaction d'un agent avec son environnement. L'interaction agent-environnement est entierement caracterisee par les transitions successives entre états (S=State), suivant des choix d'actions (A=Action) de l'agent et resultant en un bonus ou un malus pour l'agent (R=reward), donnant lieu a des series S0,A0,R1,S1,A1 ... En outre, le MDP suppose l'existence de probabilites de transition entre les etats p(s',r|s,a) qui sont connues lorsqu'on a une parfaite connaissance de l'environnement. Le MDP comprend aussi la definition d'un facteur de devaluation limitant l'importance des recompenses obtenues dans un futur lointain. Dernier point important: la valeur V(s) d'un état du systeme ne prend en compte que l'etat present et futur du systeme (the future is independent of the past given the present: c'est l'idee qu'on accumule l'experience dans la valeur de l'etat ie de la qvalues.
-
-Dans Pacman, les etats du systemes sont definis par la connaissance des positions de Pacman dans le labyrinthe, les positions des fantomes, et des pastilles. Les actions sont les mouvements dans les 4 directions haut, bas, gauche, droite. Pacman recoit un bonus de:
-- +10 quand il mange une pastille,
-- +200 quand il mange un fantome apres avoir ingere une pastille magique,
-- +500 quand il gagne apres avoir mange toutes les pastilles,
-Pacman recoit un malus de:
-- -1 a chaque pas,
-- -500 quand il se fait manger par un fantome
-
-
-
-
-
+La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours de UC Berkeley. Dans une première étape, on se familiarise avec les concepts de Markov Decision Process (MDP) et Dynamic Programming (DP). Ces méthodes sont utiles lorsqu'on a une parfaite connaissance du système. Le MDP conceptualise l'interaction d'un agent avec son environnement. L'interaction agent-environnement est entièrement caracterisée par les transitions successives entre états (S=State), suivant des choix d'actions (A=Action) de l'agent et résultant en des bonus ou malus pour l'agent (R=reward): cela donne lieu à des séries S0,A0,R1,S1,A1 ... En outre, le MDP suppose l'existence de probabilités de transition entre les états p(S',R|S,A) qui sont connues lorsqu'on a une parfaite connaissance de l'environnement. Le MDP comprend aussi la definition d'un facteur de devaluation limitant l'importance des recompenses obtenues dans un futur lointain. Dernier point important: la valeur V(s) d'un état du systeme ne prend en compte que l'etat present et futur du systeme (the future is independent of the past given the present: c'est l'idee qu'on accumule l'experience dans la valeur de l'etat ie de la qvalues.
 
 ![Principe](https://cdn-images-1.medium.com/max/1600/1*Z2yMvuQ1-t5Ol1ac_W4dOQ.png "Principe")
+
+Dans Pacman, les états du systèmes sont définis par la connaissance des positions de Pacman dans le labyrinthe, les positions des fantômes, et des pastilles. Les actions sont les mouvements dans les 4 directions haut, bas, gauche, droite. Pacman reçoit un bonus de:
+- +10 quand il mange une pastille,
+- +200 quand il mange un fantome après avoir ingéré une pastille magique,
+- +500 quand il gagne après avoir mange toutes les pastilles.
+Pacman recoit un malus de:
+- -1 à chaque pas,
+- -500 quand il se fait manger par un fantôme
+
+
+
+
+
+
+
 
 
 
