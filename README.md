@@ -1,4 +1,4 @@
-## Apprendre l'apprentissage renforce avec le Pacman d'UC Berkeley
+## Apprendre l'apprentissage renforcé avec le Pacman d'UC Berkeley
 
 <p align="center">
   <img src="http://ai.berkeley.edu/images/pacman_game.gif" alt="pacman_gif"/>
@@ -7,9 +7,9 @@
 L'ambition de ce projet était de se familiariser avec les méthodes du reinforcement learning (RL) en entrainant un "agent" à jouer à un jeu simple.
 On a utilisé le livre de Sutton et Barto, "Reinforcement Learning: an introduction" (http://incompleteideas.net/book/bookdraft2018jan1.pdf), pour s'initier à la théorie et aux méthodes de RL.
 Notre choix s'est arrêté sur le Pacman du cours "Intro to AI (CS188)" de UC Berkeley (http://ai.berkeley.edu/reinforcement.html) pour sa qualité pedagogique: 
--le développement des programmes et algorithmes de la partie reinforcement learning suit bien l'élaboration des concepts et méthodes du livre de Barto et Sutton.
--les programmes sont en python en style objet orienté: La structure hiérarchique des classes reflètent bien l'organisation et l'interdépendence des concepts dans la théorie.
--le language python permet d'utiliser les packages keras et tensorflow pour la création de réseaux de neurones
+- le développement des programmes et algorithmes de la partie reinforcement learning suit bien l'élaboration des concepts et méthodes du livre de Barto et Sutton.
+- les programmes sont en python en style objet orienté: La structure hiérarchique des classes reflètent bien l'organisation et l'interdépendence des concepts dans la théorie.
+- le language python permet d'utiliser les packages keras et tensorflow pour la création de réseaux de neurones
 
 La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours de UC Berkeley. Dans une premiere etape: se familiariser avec les concepts de mdp et dynamic programming:
 mdp (markov decision process) 
