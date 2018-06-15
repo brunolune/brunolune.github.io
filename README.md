@@ -63,6 +63,9 @@ Le premier algorithme d'apprentissage que lon doit implementer dans les programm
 
 Le choix des actions se fait par une regle de conduite "epsilon-greedy" pour trouver un compromis entre l'experience accumulee et l'exploration de nouveaux etats. En effet, la plupart du temps (1-epsilon fois en moyenne), l'action validee comme etant la meilleure par l'experience acquise indiquee par la function Q(S,A) sera choisie. Et certaine fois (epsilon fois en moyenne), une action au hasard sera choisie pour favoriser le maintien de l'exploration de possible nouvelle strategie. 
 
+Une demonstration du fonctionnement de cet algorithme peut etre faite en utilisant gridworld:
+python gridworld.py -a q -k 5 -m
+
 
 
 
