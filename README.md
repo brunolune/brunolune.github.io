@@ -9,7 +9,7 @@ On a utilisé le livre de Sutton et Barto, "Reinforcement Learning: an introduct
 Notre choix de jeu s'est arrêté sur le Pacman du cours "Intro to AI (CS188)" de UC Berkeley (http://ai.berkeley.edu/reinforcement.html) pour ses qualités pédagogiques: 
 - le développement des programmes et algorithmes de la partie reinforcement learning suit bien l'élaboration des concepts et méthodes du livre de Barto et Sutton.
 - les programmes sont en python en style objet orienté: La structure hiérarchique des classes reflètent l'organisation et l'interdépendence des concepts dans la théorie.
-- le language python permet d'utiliser les packages keras et tensorflow pour la création de réseaux de neurones
+- le language python permet d'utiliser les packages keras et tensorflow pour la création de réseaux de neurones.
 
 
 
@@ -22,12 +22,12 @@ La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours
 
 ![Principe](https://cdn-images-1.medium.com/max/1600/1*Z2yMvuQ1-t5Ol1ac_W4dOQ.png "Principe")
 
-Dans Pacman, les états du systèmes sont définis par la connaissance des positions de Pacman dans le labyrinthe, les positions des fantômes, et des pastilles. Les actions sont les mouvements dans les 4 directions haut, bas, gauche, droite. Les bonus et malus de Pacman sont:
-- +10 quand il mange une pastille
-- +200 quand il mange un fantome après avoir ingéré une pastille magique
-- +500 quand il gagne après avoir mange toutes les pastilles 
-- -1 à chaque pas
-- -500 quand il se fait manger par un fantôme
+Dans Pacman, les états du systèmes sont définis par la connaissance des positions de Pacman dans le labyrinthe, les positions des fantômes, et des pastilles. Les actions sont les mouvements dans les 4 directions haut, bas, gauche, droite, ou rester. Les bonus et malus de Pacman sont:
+- +10 quand il mange une pastille,
+- +200 quand il mange un fantôme après avoir ingéré une pastille magique,
+- +500 quand il gagne après avoir mange toutes les pastilles,
+- -1 à chaque pas,
+- -500 quand il se fait manger par un fantôme.
 
 
 
