@@ -11,12 +11,6 @@ Notre choix de jeu s'est arrêté sur le Pacman du cours "Intro to AI (CS188)" d
 - les programmes sont en python en style objet orienté: La structure hiérarchique des classes reflètent l'organisation et l'interdépendence des concepts dans la théorie.
 - le language python permet d'utiliser les packages keras et tensorflow pour la création de réseaux de neurones.
 
-
-
-Objectif: entraîner un agent à evoluer de façon optimale dans un environnment. Dans le cadre d'un jeu comme pacman, le comportement optimal consiste à gagner la partie en obtenant le score maximal.
-
-Comment? La méthode consiste à attribuer à chaque état du système Agent-Environnement une valeur qui correspond à l'espérance du score que l'agent peut atteindre dans le futur à partir de cet état.
-
 La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours de UC Berkeley. Dans une première étape, on se familiarise avec les concepts de Markov Decision Process (MDP) et Dynamic Programming (DP). Ces méthodes sont utiles lorsqu'on a une parfaite connaissance du système. Le MDP conceptualise l'interaction d'un agent avec son environnement. L'interaction agent-environnement est entièrement caractérisée par les transitions successives entre états (S=State), suivant des choix d'actions (A=Action) de l'agent et résultant en des bonus ou malus pour l'agent (R=Reward): cela donne lieu à des séries S0,A0,R1,S1,A1 ... En outre, le MDP suppose l'existence de probabilités de transition entre les états p(S',R|S,A) et comprend aussi la définition d'un facteur de dévaluation limitant l'importance des récompenses (Reward) obtenues dans un futur lointain. Dernier point important: la valeur V(S) d'un état du système ne prend en compte que l'état présent et futur du système ("the future is independent of the past given the present").Les experiences du passe sont accumule l'experience dans la valeur de l'etat ie de la qvalues.
 
 ![Principe](https://cdn-images-1.medium.com/max/1600/1*Z2yMvuQ1-t5Ol1ac_W4dOQ.png "Principe")
@@ -28,10 +22,13 @@ Dans Pacman, les états du systèmes sont définis par la connaissance des posit
 - -1 à chaque pas,
 - -500 quand il se fait manger par un fantôme.
 
-La fonction qui attribut une valeur a chaque etat est appelee value function en anglais:
+Objectif des méthodes de Reinforcement Learning: entraîner un agent à evoluer de façon optimale dans un environnment. Dans le cadre d'un jeu comme pacman, le comportement optimal consiste à gagner la partie en obtenant le score maximal.
+
+Comment? La méthode consiste à attribuer à chaque état du système Agent-Environnement une valeur qui correspond à l'espérance du score que l'agent (pacman) peut atteindre dans le futur à partir de cet état, suivant la règle de conduite dénotée par pi.
 
 <img src="equ_1_V.png">
 
+Plus explicitement, cela revient à définir la fonction Q qui donne l'espérance du score que l'agent (pacman) peut atteindre à partir de l'état S choisisant l'action A (la règle de conduite détermine qu'elle action prendre dans un etat donne du syteme).
 
 
 
@@ -41,27 +38,6 @@ La fonction qui attribut une valeur a chaque etat est appelee value function en 
 
 
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
-  "http://www.w3.org/TR/html4/loose.dtd">  
-<html > 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
-<!-- html --> 
-<meta name="src" content="testequ.tex"> 
-<meta name="date" content="2018-06-14 15:49:00"> 
-<link rel="stylesheet" type="text/css" href="testequ.css"> 
-</head><body 
->
-<!--l. 3--><p class="noindent" ><span 
-class="cmmi-10">V</span> <sub><span 
-class="cmmi-7">&#x03C0;</span></sub>(<span 
-class="cmmi-10">s</span>) = <span 
-class="cmmi-10">E</span><sub><span 
-class="cmmi-7">&#x03C0;</span></sub><img 
-src="testequ0x.png" alt="[Gt|St = s]"  class="left" align="middle">  
-</body></html> 
 
 
 You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
