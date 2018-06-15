@@ -34,10 +34,14 @@ Ainsi, une règle de conduite dite "avide" (greedy policy en anglais) consistera
 
 La première partie du cours de UC Berkeley est dediée à l'implémentation de l'algorithme d'itération de la valeur des états dans le cadre d'un environnement connu: les probabilités de transitions entre états sont connues et la méthode de Dynamic Programming consiste à faire converger la fonction Q(S,A) vers sa vraie valeur par un processus itératif. Une iteration passe en revue la totalité des états et actualise la valeur de Q(S,A) à partir des valeurs des proches voisins. La valeur de Q s'ajuste de proche en proche à partir des valeurs connues (terminal states) au fur et à mesure des itérations. La convergence est rapide sur des petite grilles d'états. Cette méthode devient trop couteuse en terme de puissance de calcul lorsque le nombre d'états augmente.
 
+A chaque iteration, apres avoir actualise la function Q(S,A), on actualise la regle de conduite, le tout formant un processus appele iterative policy evaluation.
+
 Interet: planifier la meilleure stategie lorsque l'environnement est connue.
 
+L'exemple suivant est interessant pour comprendre l'effet des parametres gamma, ainsi que le role des probabilites de transitions. Les probabilites de transition reflete la capacite a effectivement controler son evolution dans l'environnement. Le parametre noise permet d'introduire un caractere aleatoire dans l'evolution d'un hypothetique agent. Par exmple sur cet exemple il pourrait s'agir d'une personne qui passe le long d'un precipice pour recuperer un tresor. Le parametre noise pourrait refleter son etat d'ebriete. Si la personne a bu, elle pourrait ne pas parfaitement controler ses mouvements ainsi elle n'aurait par exemple qu'une probabilite p(S+N,-1|S,N)=1-noise de se diriger vers le Nord (N) et p(S+X,-1|S,N)=noise/3 de se diriger vers une autre direction (X) malgre son intention d'aller vers le Nord. Le parametre gamma reflete la capacite de la personne a connaitre l'environnement lointain. Dans cet exemple, la personne pourrait choisir de recolter le tresor de moindre valeur si le parametre gamma est trop eleve etant donne que la valeur de direction vers l'etat du tresor de plus grande valeur aura ete trop diminuee.
 
 
+Sur cet exemple, discount=0.9, noise=0.2, la route optimale devient le passage loin du precipice pour recuperer le tresor de plus grande valeur car le risque de tomber est trop grand, et le coefficient de devaluation (discount) n'est pas assez grand pour ne pas "voir" le tresor de plus grande valeur.
 
 
 
