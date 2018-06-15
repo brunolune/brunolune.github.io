@@ -40,9 +40,10 @@ A chaque iteration, apres avoir actualise la function Q(S,A), on actualise la re
 
 <img src="equ_3_pi.png">
 
-Interet: planifier la meilleure stategie lorsque l'environnement est connue.
+Interet: planifier la meilleure stategie en en fonction de certains parametres lorsque l'environnement est connu par ailleurs.
 
-L'exemple suivant est interessant pour comprendre l'effet des parametres gamma, ainsi que le role des probabilites de transitions. Les probabilites de transition reflete la capacite a effectivement controler son evolution dans l'environnement. Le parametre noise permet d'introduire un caractere aleatoire dans l'evolution d'un hypothetique agent. Par exmple sur cet exemple il pourrait s'agir d'une personne qui passe le long d'un precipice pour recuperer un tresor. Le parametre noise pourrait refleter son etat d'ebriete. Si la personne a bu, elle pourrait ne pas parfaitement controler ses mouvements ainsi elle n'aurait par exemple qu'une probabilite p(S+N,-1|S,N)=1-noise de se diriger vers le Nord (N) et p(S+X,-1|S,N)=noise/3 de se diriger vers une autre direction (X) malgre son intention d'aller vers le Nord. Le parametre gamma reflete la capacite de la personne a connaitre l'environnement lointain. Dans cet exemple, la personne pourrait choisir de recolter le tresor de moindre valeur si le parametre gamma est trop eleve etant donne que la valeur de direction vers l'etat du tresor de plus grande valeur aura ete trop diminuee.
+L'exemple suivant est interessant pour comprendre l'effet des parametres gamma, ainsi que le role des probabilites de transitions determinee par le parametre noise. Les probabilites de transition reflete la capacite a effectivement controler son evolution dans l'environnement. Le parametre noise permet d'introduire un caractere aleatoire dans l'evolution d'un hypothetique agent.Dans cet exemple,on pourrait s'interesser au meilleur trajet pour recuperer un tresor qui se trouve pres d'un precipice. Suivant l'etat d'ebriete de la personne, le meilleur trajet ne sera pas forcement le plus court qui passe le long du precipice car la personne pourrait faire un pas de travers et tomber.letat d'ebriete est reflete par le parametre noise dans l'environnement gridworld des programmes de UC Berkeley. Si la personne a trop bu, elle pourrait ne pas parfaitement controler ses mouvements ainsi elle n'aurait par exemple qu'une probabilite p(S+N,-1|S,N)=1-noise de se diriger vers le Nord (N) et p(S+X,-1|S,N)=noise/3 de se diriger dans une autre direction (X) malgre son intention d'aller vers le Nord. 
+Le parametre gamma ,quant a lui, reflete la capacite de la personne a connaitre l'environnement lointain. plus le parametre gamma est grand et moins les qvalues des etats lointain seront propage. Ainsi, dans cet exemple, la personne pourrait choisir de recolter le tresor de moindre valeur si le parametre gamma est trop eleve etant donne que la valeur des etats dans la direction du tresor de plus grande valeur auront ete trop diminuee par gamma.
 
 
 Sur cet exemple, discount=0.9, noise=0.2, la route optimale devient le passage loin du precipice pour recuperer le tresor de plus grande valeur car le risque de tomber est trop grand, et le coefficient de devaluation (discount) n'est pas assez grand pour ne pas "voir" le tresor de plus grande valeur.
@@ -54,6 +55,9 @@ Sur cet exemple, discount=0.9, noise=0.2, la route optimale devient le passage l
 <img src="qvalueiteration.png">
 
 
+La deuxieme partie du cours de Berkeley sinteresse aux methodes de reinforcement learning dans des environnement inconnus, ou l'agent doit apprendre a evoluer au fur et a mesure de son experience avec l'environnement. 
+
+Le premier algorithme implemente est l'algorithme de Q learning appele SARSA:
 
 
 
