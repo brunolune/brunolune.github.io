@@ -55,9 +55,15 @@ Sur cet exemple, discount=0.9, noise=0.2, la route optimale devient le passage l
 <img src="qvalueiteration.png">
 
 
-La deuxieme partie du cours de Berkeley sinteresse aux methodes de reinforcement learning dans des environnement inconnus, ou l'agent doit apprendre a evoluer au fur et a mesure de son experience avec l'environnement. 
+La deuxieme partie du cours de Berkeley sinteresse aux methodes de reinforcement learning dans des environnement inconnus, ou l'agent doit apprendre a evoluer au fur et a mesure de son experience avec l'environnement. On reste dans un paradigme de MDP, mais l'environnement n'etant pas connu, on a plus la possibilite de calculer la valeur des etats a partir des autres valeurs d'etats connus. L'agent va explorer l'environnement autour de lui et accumuler son experience dans la fonction Q(S,A) actualisee au fur et a mesure de son cheminement.
 
-Le premier algorithme implemente est l'algorithme de Q learning appele SARSA:
+Le premier algorithme que lon doit implementer dans les programmes de UC Berkeley est l'algorithme de Q-learning:
+
+
+
+
+
+
 
 
 
