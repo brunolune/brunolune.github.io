@@ -17,7 +17,6 @@ Objectif: entraîner un agent à evoluer de façon optimale dans un environnment
 
 Comment? La méthode consiste à attribuer à chaque état du système Agent-Environnement une valeur qui correspond à l'espérance du score que l'agent peut atteindre dans le futur à partir de cet état.
 
-
 La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours de UC Berkeley. Dans une première étape, on se familiarise avec les concepts de Markov Decision Process (MDP) et Dynamic Programming (DP). Ces méthodes sont utiles lorsqu'on a une parfaite connaissance du système. Le MDP conceptualise l'interaction d'un agent avec son environnement. L'interaction agent-environnement est entièrement caractérisée par les transitions successives entre états (S=State), suivant des choix d'actions (A=Action) de l'agent et résultant en des bonus ou malus pour l'agent (R=Reward): cela donne lieu à des séries S0,A0,R1,S1,A1 ... En outre, le MDP suppose l'existence de probabilités de transition entre les états p(S',R|S,A) et comprend aussi la définition d'un facteur de dévaluation limitant l'importance des récompenses (Reward) obtenues dans un futur lointain. Dernier point important: la valeur V(S) d'un état du système ne prend en compte que l'état présent et futur du système ("the future is independent of the past given the present").Les experiences du passe sont accumule l'experience dans la valeur de l'etat ie de la qvalues.
 
 ![Principe](https://cdn-images-1.medium.com/max/1600/1*Z2yMvuQ1-t5Ol1ac_W4dOQ.png "Principe")
@@ -28,6 +27,10 @@ Dans Pacman, les états du systèmes sont définis par la connaissance des posit
 - +500 quand il gagne après avoir mange toutes les pastilles,
 - -1 à chaque pas,
 - -500 quand il se fait manger par un fantôme.
+
+La fonction qui attribut une valeur a chaque etat est appelee value function en anglais:
+
+<img src="equ_1_V.png">
 
 
 
