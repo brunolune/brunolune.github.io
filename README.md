@@ -28,9 +28,11 @@ Comment? La méthode consiste à attribuer à chaque état du système Agent-Env
 
 <img src="equ_1_Q.png">
 
-Ainsi, une règle de conduite dite "avide" (greedy policy en anglais) consistera à systématiquement choisir l'action qui conduira à l'espérance de récompense maximum dans le futur.
+Ainsi, une règle de conduite dite "avide" (greedy policy en anglais) consistera à systématiquement choisir l'action qui conduira à l'espérance de récompense maximum dans le futur immédiat.
 
-<img src="equ_1_pi.png">
+<img src="equ_2_pi.png">
+
+Dans une premiere partie du cours de berkeley on implemente l'algo de value iteration ... 
 
 
 
