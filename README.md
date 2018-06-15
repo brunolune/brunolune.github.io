@@ -61,7 +61,7 @@ Le premier algorithme d'apprentissage que lon doit implementer dans les programm
 
 <img src="equ_4_Q.png">
 Le parametre alpha introduit est le coefficient d'apprentissage. Nous remarquons en passant que l'actualisation de la fonction Q(S,A) s'obtient ainsi par integration progressive (factor alpha) des nouvelles valeurs. On fait tendre Q(S,A) vers la nouvelle estimation de Q(S,A) que l'on vient d'obtenir:
-<img src="equ_4_Q.png">
+<img src="equ_5_Q.png">
 Le choix des actions se fait par une regle de conduite "epsilon-greedy" pour trouver un compromis entre l'exploitation de l'experience accumulee et l'exploration de nouveaux etats. En effet, la plupart du temps (1-epsilon fois en moyenne), l'action validee comme etant la meilleure par l'experience acquise indiquee par la function Q(S,A) sera choisie. Et certaine fois (epsilon fois en moyenne), une action au hasard sera choisie pour favoriser le maintien de l'exploration de possible nouvelle strategie. 
 
 Une demonstration du fonctionnement de cet algorithme peut etre faite en utilisant gridworld:
