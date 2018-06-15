@@ -60,7 +60,7 @@ La deuxieme partie du cours de Berkeley sinteresse aux methodes de reinforcement
 Le premier algorithme d'apprentissage que lon doit implementer dans les programmes de UC Berkeley est l'algorithme de Q-learning (off policy Time Difference TD(0), chapitre 6.5 dans le livre de Sutton et Barto):
 
 <img src="equ_4_Q.png">
-Le parametre alpha introduit est le coefficient d'apprentissage. Nous remarquons en passant que l'actualisation de la fonction Q(S,A) s'obtient ainsi par integration progressive (factor alpha) des nouvelles valeurs. On fait tendre Q(S,A) vers la nouvelle estimation de Q(S,A) que l'on vient d'obtenir:
+Le parametre alpha introduit est le coefficient d'apprentissage. Nous remarquons en passant que l'actualisation de la fonction Q(S,A) s'obtient ainsi par integration progressive des nouvelles valeurs(factor alpha =0.2 typically). On fait tendre Q(S,A) vers la nouvelle estimation de Q(S,A) que l'on vient d'obtenir:
 <img src="equ_5_Q.png">
 Le choix des actions se fait par une regle de conduite "epsilon-greedy" pour trouver un compromis entre l'exploitation de l'experience accumulee et l'exploration de nouveaux etats. En effet, la plupart du temps (1-epsilon fois en moyenne), l'action validee comme etant la meilleure par l'experience acquise indiquee par la function Q(S,A) sera choisie. Et certaine fois (epsilon fois en moyenne), une action au hasard sera choisie pour favoriser le maintien de l'exploration de possible nouvelle strategie. 
 
@@ -69,6 +69,10 @@ python gridworld.py -a q -k 5 -m
 
 
 <img src="q-learning.png">
+
+Interessons nous maintenant a l'utilisation de cet algorithme pour le jeu de Pacman:
+
+Nous avons fait rejouer le jeu de pacman 2000 fois par l'agent et enregistrer des videos du jeux a intervals reguliers. 
 
 
 
