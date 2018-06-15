@@ -24,11 +24,13 @@ Dans Pacman, les états du systèmes sont définis par la connaissance des posit
 
 Objectif des méthodes de Reinforcement Learning: entraîner un agent à evoluer de façon optimale dans un environnment. Dans le cadre d'un jeu comme pacman, le comportement optimal consiste à gagner la partie en obtenant le score maximal.
 
-Comment? La méthode consiste à attribuer à chaque état du système Agent-Environnement une valeur qui correspond à l'espérance du score que l'agent (pacman) peut atteindre dans le futur à partir de cet état S, choisisant l'action A suivant la règle de conduite dénotée par pi.
+Comment? La méthode consiste à attribuer à chaque état du système Agent-Environnement une valeur qui correspond à l'espérance du score que l'agent (pacman) peut atteindre dans le futur à partir de cet état S, choisisant l'action A suivant la règle de conduite (policy en anglais) dénotée par pi.
 
 <img src="equ_1_Q.png">
 
-Ainsi, une regle de conduite dite "avide" (greedy policy en anglais) consistera a systematiquement choisir l'action qui conduira a l'esperance de recompense maximum dans le futur.
+Ainsi, une règle de conduite dite "avide" (greedy policy en anglais) consistera à systématiquement choisir l'action qui conduira à l'espérance de récompense maximum dans le futur.
+
+<img src="equ_1_pi.png">
 
 
 
