@@ -15,7 +15,7 @@ La familiarisation aux concepts du RL se fait en plusieurs étapes avec le cours
 
 ![Principe](https://cdn-images-1.medium.com/max/1600/1*Z2yMvuQ1-t5Ol1ac_W4dOQ.png "Principe")
 
-Dans Pacman, les états du systèmes sont définis par la connaissance des positions de Pacman dans le labyrinthe, les positions des fantômes, et des pastilles. Les actions sont les mouvements dans les 4 directions haut, bas, gauche, droite, ou rester. Les bonus et malus de Pacman sont:
+Dans Pacman, les états du systèmes sont définis par la connaissance des positions de Pacman dans le labyrinthe, les positions des fantômes, et des pastilles. Les actions sont les mouvements dans les 4 directions haut, bas, gauche, droite, ou l'inaction. Les bonus et malus de Pacman sont:
 - +10 quand il mange une pastille,
 - +200 quand il mange un fantôme après avoir ingéré une pastille magique,
 - +500 quand il gagne après avoir mange toutes les pastilles,
