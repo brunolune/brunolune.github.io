@@ -57,9 +57,13 @@ Sur cet exemple, discount=0.9, noise=0.2, la route optimale devient le passage l
 
 La deuxieme partie du cours de Berkeley sinteresse aux methodes de reinforcement learning dans des environnement inconnus, ou l'agent doit apprendre a evoluer au fur et a mesure de son experience avec l'environnement. On reste dans un paradigme de MDP, mais l'environnement n'etant pas connu, on a plus la possibilite de calculer la valeur des etats a partir des autres valeurs d'etats connus. L'agent va explorer l'environnement autour de lui et accumuler son experience dans la fonction Q(S,A) actualisee au fur et a mesure de son cheminement.
 
-Le premier algorithme que lon doit implementer dans les programmes de UC Berkeley est l'algorithme de Q-learning:
+Le premier algorithme d'apprentissage que lon doit implementer dans les programmes de UC Berkeley est l'algorithme de Q-learning (off policy Time Difference TD(0), chapitre 6.5 dans le livre de Sutton et Barto):
 
 <img src="equ_4_Q.png">
+
+Le choix des actions se fait par une regle de conduite "epsilon-greedy" pour trouver un compromis entre l'experience accumulee et l'exploration de nouveaux etats. En effet, la plupart du temps (1-epsilon fois en moyenne), l'action validee comme etant la meilleure par l'experience acquise indiquee par la function Q(S,A) sera choisie. Et certaine fois (epsilon fois en moyenne), une action au hasard sera choisie pour favoriser le maintien de l'exploration de possible nouvelle strategie. 
+
+
 
 
 
