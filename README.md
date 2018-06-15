@@ -35,6 +35,10 @@ Ainsi, une règle de conduite dite "avide" (greedy policy en anglais) consistera
 Dans une premiere partie du cours de berkeley on implemente l'algo de value iteration ... 
 
 
+<img src="discountgrid.png">
+
+<img src="qvalueiteration.ps">
+
 
 
 
