@@ -59,7 +59,7 @@ La deuxieme partie du cours de Berkeley sinteresse aux methodes de reinforcement
 
 Le premier algorithme que lon doit implementer dans les programmes de UC Berkeley est l'algorithme de Q-learning:
 
-
+<img src="equ_4_Q.png">
 
 
 
