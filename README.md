@@ -37,7 +37,7 @@ Dans une premiere partie du cours de berkeley on implemente l'algo de value iter
 
 <img src="discountgrid.png">
 
-<img src="qvalueiteration.ps">
+<img src="qvalueiteration.png">
 
 
 
