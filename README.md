@@ -34,7 +34,7 @@ Ainsi, une règle de conduite dite "avide" (greedy policy en anglais) consistera
 
 La première partie du cours de UC Berkeley est dediée à l'implémentation de l'algorithme d'itération de la valeur des états dans le cadre d'un environnement connu: les probabilités de transitions entre états sont connues et la méthode de Dynamic Programming consiste à faire converger la fonction Q(S,A) vers sa vraie valeur par un processus itératif. Une iteration passe en revue la totalité des états et actualise la valeur de Q(S,A) à partir des valeurs des proches voisins. La valeur de Q s'ajuste de proche en proche à partir des valeurs connues (terminal states) au fur et à mesure des itérations. La convergence est rapide sur des petite grilles d'états. Cette méthode devient trop couteuse en terme de puissance de calcul lorsque le nombre d'états augmente.
 
-<img src="equ_3_Q.png">
+<img src="equ_6_Q.png">
 
 A chaque iteration, apres avoir actualise la function Q(S,A), on actualise la regle de conduite, le tout formant un processus appele iterative policy evaluation.
 
