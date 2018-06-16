@@ -75,7 +75,7 @@ Interessons nous maintenant a l'utilisation de cet algorithme pour le jeu de Pac
 Nous avons fait rejouer le jeu de pacman 2000 fois par l'agent et enregistrer des videos du jeux a intervals reguliers. 
 
 
-
+<img src="video1_output2_2400.gif">
 
 
 
