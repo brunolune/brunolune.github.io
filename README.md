@@ -79,7 +79,10 @@ Nous avons fait rejouer le jeu de pacman 2000 fois par l'agent et enregistrer de
 ![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video1_output2_2400.gif)
 
 
-
+  <img id="gif-2" src="http://insightgraphicdesign.net/wp-content/uploads/2014/07/coke-1.png" 
+    onmouseover="document.getElementById('gif-2').src='http://insightgraphicdesign.net/wp-content/uploads/2014/07/coke-responsive-logo_copy.gif'" 
+    onmouseout="document.getElementById('gif-2').src='http://insightgraphicdesign.net/wp-content/uploads/2014/07/coke-1.png'" 
+  />
 
 
 
