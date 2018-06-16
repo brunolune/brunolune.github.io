@@ -72,14 +72,22 @@ python gridworld.py -a q -k 5 -m
 
 Interessons nous maintenant a l'utilisation de cet algorithme pour le jeu de Pacman:
 
-Nous avons fait rejouer le jeu de pacman 2000 fois par l'agent et enregistrer des videos du jeux a intervals reguliers. 
+Plusieurs labyrinthes
+
+Nous avons fait rejouer le jeu de pacman 24100 fois par l'agent, dont 24000 jeux d'entrainement et 100 jeux de test pendant lesquels alpha=0. On a enregistre certaines parties a intervalles reguliers pour visualiser l'entrainement. Voici quelques parties enregistrees sur une grille moyenne. 
 
 
-
+apres 2400 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9)
 ![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video1_output2_2400.gif)
 
+apres 9641 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence a se degourdir mais perd toujours
+![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video2_output2_9641.gif)
 
+apres 24024 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman est trop fort!
+![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video5_output2_24024.gif)
 
+apres 24096 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), personne n'est infaillible!
+![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video4_output2_24096.gif)
 
 
 
