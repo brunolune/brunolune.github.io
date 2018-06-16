@@ -89,7 +89,7 @@ apres 24024 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman 
 apres 24096 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), personne n'est infaillible!
 ![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video4_output2_24096.gif)
 
-
+On voit donc la necessite d'utiliser des methodes d'approximation ...
 
 You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
