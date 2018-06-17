@@ -72,26 +72,29 @@ python gridworld.py -a q -k 5 -m
 
 Interessons nous maintenant a l'utilisation de cet algorithme pour le jeu de Pacman:
 
-On a experimente avec plusieurs labyrinthes:
-- La petite grille, qui comporte 1 seul fantome, 18 positions et 2 pastilles initialement. Le nombre de differentes configurations possibles de pacman, du fantome et des pastilles, est de 1224 configurations. En pratique, le nombre de configurations, qui se presentent a l'agent, est bien moindre (~<100). En moyenne, il faut secs pour jouer un jeu,
+On a expérimenté avec plusieurs labyrinthes:
+
+- La petite grille (smallGrid), qui comporte 1 seul fantôme, 18 positions et 2 pastilles initialement. Le nombre de différentes configurations possibles de pacman, du fantome et des pastilles, est de 1224 configurations. En pratique, le nombre de configurations, qui se présentent à l'agent, est bien moindre (~<50?). En moyenne, il faut secs pour jouer un jeu,
 
 <p align="center">
 <img src="smallGrid_frame_00000000.png">
 </p>
 
-- la grille medium, qui comporte 1 seul fantome, 32 positions accessibles et 4 pastilles initialement. En tout, 15872 configurations possibles mais en realite seulement un nombre bien moindre rencontrees par l'agent (~<100?). 
+<p align="center">
+<img src="plot_avg_score_over_100_vs_epsilon_smallGrid.png">
+</p>
+
+- la grille moyenne (mediumGrid), qui comporte 1 seul fantome, 32 positions accessibles et 4 pastilles initialement. En tout, 15872 configurations possibles mais en realite seulement un nombre bien moindre rencontrees par l'agent (~<100?). 
 
 <p align="center">
 <img src="mediumGrid_frame_00000000.png">
 </p>
 
-- le labyrinthe "capsuleClassic", qui a 3 fantomes, 56 positions accessibles ,24 pastilles et 3 pastilles magiques (capsules). Le nombre de configuration possible est tres grand, mais le nombre de configurations que rencontrent pacman beaucoup limite (~<1000?)
-
 <p align="center">
-<img src="capsuleClassic_frame_00000000.png">
+<img src="plot_avg_score_over_100_vs_epsilon_mediumGrid.png">
 </p>
 
-Sur une grille moyenne (mediumGrid), nous avons fait jouer le jeu de pacman 24100 fois par l'agent, dont 24000 jeux d'entrainement et 100 jeux de test pendant lesquels alpha=0. On a enregistre certaines parties a intervalles reguliers pour visualiser l'amelioration au cours de l'entrainement. Voici quelques parties enregistrees: 
+Sur la grille moyenne (mediumGrid), nous avons fait jouer le jeu de pacman 24100 fois par l'agent, dont 24000 jeux d'entrainement et 100 jeux de test pendant lesquels alpha=0. On a enregistre certaines parties a intervalles reguliers pour visualiser l'amelioration au cours de l'entrainement. Voici quelques parties enregistrees: 
 
 
 apres 2400 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9):
@@ -127,8 +130,12 @@ apres 24096 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), personn
 
 <img src="plot_avg_score_over_100_vs_epsilon_mediumGrid.png">
 
-<img src="plot_avg_score_over_100_vs_epsilon_smallGrid.png">
+- le labyrinthe "capsuleClassic", qui a 3 fantômes, 56 positions accessibles ,24 pastilles et 3 pastilles magiques (capsules). Le nombre de configuration possible est trés grand, mais le nombre de configurations que rencontrent pacman beaucoup plus limité (~<1000?). Malgre tout, le nombre de parties à jouer pour explorer les configurations jusqu'à trouver une stratégie pour gagner le jeu devient beaucoup trop important pour être calculer rapidement. En outre, utilisant un laptop avec 8Gb de RAM, nous avons rapidement été limité par la memoire vive après seulement environ 20000 parties jouées. A ce stade, le pacman n'a pas encore pu apprendre à gagner une partie. 
 
+
+<p align="center">
+<img src="capsuleClassic_frame_00000000.png">
+</p>
 
 On voit donc la necessite d'utiliser des methodes d'approximation ...
 
