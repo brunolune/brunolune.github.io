@@ -84,18 +84,28 @@ apres 2400 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9):
 </p>
 
 apres 4821 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence a se degourdir mais perd toujours.
-![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video6_output2_4821.gif)
+
+<p align="center">
+  <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video6_output2_4821.gif" >
+</p>
 
 apres 9641 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence a gagner des parties.
-![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video2_output2_9641.gif)
+
+<p align="center">
+  <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video2_output2_9641.gif" >
+</p>
 
 apres 24024 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman est trop fort!
-![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video5_output2_24024.gif)
+
+<p align="center">
+  <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video5_output2_24024.gif" >
+</p>
 
 apres 24096 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), personne n'est infaillible!
-![alt text](https://github.com/brunolune/brunolune.github.io/blob/master/video4_output2_24096.gif)
 
-
+<p align="center">
+  <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video4_output2_24096.gif" >
+</p>
 
 
 <img src="plot_avg_score_over_100_vs_epsilon_mediumGrid.png">
