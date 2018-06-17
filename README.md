@@ -154,6 +154,9 @@ Q(S,A) est directement calculée à partir des n features fi(S,A), l'entrainemen
 
 <img src="equ_1_w.png">
 
+En utilisant les features "#-of-ghosts-1-step-away","eats-food", et "closest food" qui indiquent a pacman combien de fantomes sont a proximite, si les pastilles proches peuvent etre mange sans danger, et a quelle distance se trouve les prochaines pastilles, l'entrainement prend seulement environ 50 iterations meme sur un grand labyrinthe.
+
+
 
 
 You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
