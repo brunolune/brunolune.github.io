@@ -128,8 +128,6 @@ apres 24096 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), personn
 </p>
 
 
-<img src="plot_avg_score_over_100_vs_epsilon_mediumGrid.png">
-
 - le labyrinthe "capsuleClassic", qui a 3 fantômes, 56 positions accessibles ,24 pastilles et 3 pastilles magiques (capsules). Le nombre de configuration possible est trés grand, mais le nombre de configurations que rencontrent pacman beaucoup plus limité (~<1000?). Malgre tout, le nombre de parties à jouer pour explorer les configurations jusqu'à trouver une stratégie pour gagner le jeu devient beaucoup trop important pour être calculer rapidement. En outre, utilisant un laptop avec 8Gb de RAM, nous avons rapidement été limité par la memoire vive après seulement environ 20000 parties jouées. A ce stade, le pacman n'a pas encore pu apprendre à gagner une partie. 
 
 
@@ -137,7 +135,7 @@ apres 24096 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), personn
 <img src="capsuleClassic_frame_00000000.png">
 </p>
 
-On voit donc la necessite d'utiliser des methodes d'approximation ...
+Pour remédier à ce problème d'apprentissage dans des environnement à grand nombre d'états, nous devons avoir recours à des méthodes d'approximation. Dans le cours de UC Berkeley, une méthode d'approximation linéaire utilisant des "features" est utilisée (cf. livre de Barto and Sutton chapitre 9.4). Ces méthodes permettent de réduire le nombre d'état que l'agent doit explorer pour apprendre à jouer. elles permettent de trier l'information pertinente. Par exemple, sans approximation, si la même configuration des acteurs (exemple: pacman entouré de 2 fantômes) qui a deja ete apprise a un endroit du labyrinthe se reproduit a un autre endroit, elle devra être reapprise de nouveau etant consideree comme un etat a priori different pour l'agent. L'utilisation de features du type "presence de fantomes a proximite" permet de s'abstraire de la position spatiale sur la grille et ainsi il suffit d'apprendre a jouer la configuration une fois pour savoir la jouer a d'autres endroits du labyrinthe.  
 
 You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
