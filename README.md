@@ -32,6 +32,8 @@ Ainsi, une règle de conduite dite "avide" (greedy policy en anglais) consistera
 
 <img src="equ_2_pi.png">
 
+# Value Iteration ,Dynamic Programming, Iterative Policy Evaluation
+
 La première partie du cours de UC Berkeley est dediée à l'implémentation de l'algorithme d'itération de la valeur des états dans le cadre d'un environnement connu: les probabilités de transitions entre états sont connues et la méthode de Dynamic Programming consiste à faire converger la fonction Q(S,A) vers sa vraie valeur par un processus itératif. Une itération passe en revue la totalité des états et actualise la valeur de Q(S,A) à partir des valeurs des proches voisins. La valeur de Q s'ajuste de proche en proche à partir des valeurs connues (terminal states) au fur et à mesure des itérations. La convergence est rapide sur des petite grilles d'états. Cette méthode devient trop couteuse en terme de puissance de calcul lorsque le nombre d'états augmente.
 
 <img src="equ_6_Q.png">
@@ -42,27 +44,24 @@ A chaque itération, après avoir actualisé la function Q(S,A), on actualise la
 
 Intéret: planifier la meilleure stratégie en fonction de certains paramètres lorsque l'environnement est connu par ailleurs.
 
-L'exemple suivant est intéressant pour comprendre l'effet du paramètre gamma, ainsi que le rôle des probabilités de transitions determinée par le paramètre noise. Les probabilités de transition reflètent la capacité de l'agent à effectivement contrôler son évolution dans l'environnement. Le parametre noise permet d'introduire un caractère aléatoire dans l'évolution d'un hypothétique agent. Dans cet exemple,on pourrait s'intéresser au meilleur trajet pour récupérer un trésor qui se trouve près d'un précipice. Suivant l'état d'ébriété de la personne, le meilleur trajet ne sera pas forcement le plus court qui passe le long du precipice car la personne pourrait faire un pas de travers et tomber.letat d'ebriete est reflete par le parametre noise dans l'environnement gridworld des programmes de UC Berkeley. Si la personne a trop bu, elle pourrait ne pas parfaitement controler ses mouvements ainsi elle n'aurait par exemple qu'une probabilite p(S+N,-1|S,N)=1-noise de se diriger vers le Nord (N) et p(S+X,-1|S,N)=noise/3 de se diriger dans une autre direction (X) malgre son intention d'aller vers le Nord. 
-Le parametre gamma ,quant a lui, reflete la capacite de la personne a connaitre l'environnement lointain. plus le parametre gamma est grand et moins les qvalues des etats lointain seront propage. Ainsi, dans cet exemple, la personne pourrait choisir de recolter le tresor de moindre valeur si le parametre gamma est trop eleve etant donne que la valeur des etats dans la direction du tresor de plus grande valeur auront ete trop diminuee par gamma.
+L'exemple suivant est intéressant pour comprendre l'effet du paramètre gamma, ainsi que le rôle des probabilités de transitions determinées par le paramètre noise. Les probabilités de transition reflètent la capacité de l'agent à effectivement contrôler son évolution dans l'environnement. Le paramètre noise permet d'introduire un caractère aléatoire dans l'évolution d'un hypothétique agent. Dans cet exemple, on pourrait s'intéresser au meilleur trajet pour récupérer un trésor qui se trouve près d'un précipice. Suivant l'état d'ébriété de la personne, le meilleur trajet ne sera pas forcément le plus court qui passe le long du précipice car la personne pourrait faire un pas de travers et tomber. l'état d'ébriété est reflété par le paramètre noise dans l'environnement gridworld des programmes de UC Berkeley. Si la personne a trop bu, elle pourrait ne pas parfaitement contrôler ses mouvements. Ainsi, elle n'aurait par exemple qu'une probabilité p(S+N,-1|S,N)=(1-noise) de se diriger vers le Nord (N) et p(S+X,-1|S,N)=(noise/3) de se diriger dans une autre direction (X) malgré son intention d'aller vers le Nord. 
+Le paramètre gamma ,quant à lui, reflète la capacité de la personne à connaître l'environnement lointain. Plus le paramètre gamma est grand et moins les valeurs des états lointain seront propagés. Ainsi, dans cet exemple, la personne pourrait choisir de récolter le trésor de moindre valeur si le paramètre gamma est trop élevé etant donné que les valeurs des états dans la direction du trésor de plus grande valeur auront été trop amoindries par gamma.
 
-
-Sur cet exemple, discount=0.9, noise=0.2, la route optimale devient le passage loin du precipice pour recuperer le tresor de plus grande valeur car le risque de tomber est trop grand, et le coefficient de devaluation (discount) n'est pas assez grand pour ne pas "voir" le tresor de plus grande valeur.
-
-
+Sur cet exemple, discount=0.9, noise=0.2, la route optimale devient le passage loin du précipice pour récupérer le trésor de plus grande valeur car le risque de tomber est trop grand, et le coefficient de dévaluation (discount) n'est pas assez grand pour ne pas "voir" le trésor de plus grande valeur...
 
 <img src="discountgrid.png">
 
 <img src="qvalueiteration.png">
 
+## Apprentissage non supervisé: Q-Learning
 
-La deuxieme partie du cours de Berkeley sinteresse aux methodes de reinforcement learning dans des environnement inconnus, ou l'agent doit apprendre a evoluer au fur et a mesure de son experience avec l'environnement. On reste dans un paradigme de MDP, mais l'environnement n'etant pas connu, on a plus la possibilite de calculer la valeur des etats a partir des autres valeurs d'etats connus. L'agent va explorer l'environnement autour de lui et accumuler son experience dans la fonction Q(S,A) actualisee au fur et a mesure de son cheminement.
+La deuxième partie du cours de Berkeley s'intéresse aux méthodes de reinforcement learning dans des environnement inconnus, ou l'agent doit apprendre à évoluer au fur et a mesure de son expérience avec l'environnement. On reste dans un paradigme de MDP, mais l'environnement n'étant pas connu, on a plus la possibilité de calculer la valeur des états à partir des autres valeurs d'états connus. L'agent va explorer l'environnement autour de lui et accumuler son expérience dans la fonction Q(S,A) actualisée au fur et a mesure de son cheminement.
 
-Le premier algorithme d'apprentissage que lon doit implementer dans les programmes de UC Berkeley est l'algorithme de Q-learning (off policy Time Difference TD(0), chapitre 6.5 dans le livre de Sutton et Barto):
-
+Le premier algorithme d'apprentissage que lon doit implémenter dans les programmes de UC Berkeley est l'algorithme de Q-learning (off policy Time Difference TD(0), chapitre 6.5 dans le livre de Sutton et Barto):
 <img src="equ_4_Q.png">
-Le parametre alpha introduit est le coefficient d'apprentissage. Nous remarquons en passant que l'actualisation de la fonction Q(S,A) s'obtient ainsi par integration progressive des nouvelles valeurs(factor alpha =0.2 typically). On fait tendre Q(S,A) vers la nouvelle estimation de Q(S,A) que l'on vient d'obtenir:
+Le paramètre alpha introduit, est le coefficient d'apprentissage. Nous remarquons en passant que l'actualisation de la fonction Q(S,A) s'obtient ainsi par intégration progressive des nouvelles valeurs(factor alpha =0.2 typically). On fait tendre Q(S,A) vers la nouvelle estimation de Q(S,A) que l'on vient d'obtenir:
 <img src="equ_5_Q.png">
-Le choix des actions se fait par une regle de conduite "epsilon-greedy" pour trouver un compromis entre l'exploitation de l'experience accumulee et l'exploration de nouveaux etats. En effet, la plupart du temps (1-epsilon fois en moyenne), l'action validee comme etant la meilleure par l'experience acquise indiquee par la function Q(S,A) sera choisie. Et certaine fois (epsilon fois en moyenne), une action au hasard sera choisie pour favoriser le maintien de l'exploration de possible nouvelle strategie. 
+Le choix des actions se fait par une règle de conduite "epsilon-greedy" pour trouver un compromis entre l'exploitation de l'expérience accumulée et l'exploration de nouveaux états. En effet, la plupart du temps (1-epsilon fois en moyenne), l'action validée comme étant la meilleure par l'expérience acquise indiquée par la function Q(S,A) sera choisie. Et certaine fois (epsilon fois en moyenne), une action au hasard sera choisie pour favoriser le maintien de l'exploration de possibles nouvelles stratégies. 
 
 Une démonstration du fonctionnement de cet algorithme peut être faite en utilisant gridworld:
 
@@ -71,11 +70,11 @@ python gridworld.py -a q -k 5 -m
 
 <img src="q-learning.png">
 
-Interessons nous maintenant a l'utilisation de cet algorithme pour le jeu de Pacman:
+Intéréssons nous maintenant à l'utilisation de cet algorithme pour le jeu de Pacman:
 
 On a expérimenté avec plusieurs labyrinthes:
 
-- La petite grille (smallGrid), qui comporte un seul fantôme, 18 positions et 2 pastilles initialement. Le nombre de différentes configurations possibles de pacman, du fantome et des pastilles, est de 1224 configurations. En pratique, le nombre de configurations, qui se présentent à l'agent, est bien moindre (~<50?).
+- La petite grille (smallGrid), qui comporte un seul fantôme, 18 positions et 2 pastilles initialement. Le nombre de différentes configurations possibles de pacman, du fantôme et des pastilles, est de 1224 configurations. En pratique, le nombre de configurations, qui se présentent à l'agent, est bien moindre (~<50?).
 
 <p align="center">
 <img src="smallGrid_frame_00000000.png">
@@ -87,7 +86,7 @@ En moyenne, il faut 0.012 secs pour jouer un jeu (sans visualisation): en seulem
 <img src="video7_output7_3054.gif">
 </p>
 
-Le graphe ci-dessous montre une etude de la dependence du score moyen en fonction du parametre epsilon: plus epsilon est grand plus on favorise l'exploration de nouvelle actions au detriment de celles apprises. 
+Le graphe ci-dessous montre une étude de la dépendance du score moyen en fonction du paramètre epsilon: plus epsilon est grand plus on favorise l'exploration de nouvelles actions au détriment de celles apprises. 
 
 <p align="center">
 <img src="plot_avg_score_over_100_vs_epsilon_smallGrid.png">
@@ -101,13 +100,13 @@ Le graphe ci-dessous montre une etude de la dependence du score moyen en fonctio
 
 Sur la grille moyenne (mediumGrid), nous avons fait jouer le jeu de pacman 24100 fois par l'agent, dont 24000 jeux d'entrainement et 100 jeux de test pendant lesquels alpha=0.
 
-Le graphe ci-dessous montre une étude de la dépendence du score moyen en fonction du paramètre epsilon pour la grille moyenne. Il faut attendre environ 10000 itérations avant que l'agent réussisse à gagner de facon consistente. En moyenne, il faut 0.037 secs pour jouer un jeu (sans visualisation), donc cela prend environ 6 minutes pour entrainer l'agent à jouer à ce jeu et un peu plus de 10 minutes pour qu'il devienne imbattable. 
+Le graphe ci-dessous montre une étude de la dépendance du score moyen en fonction du paramètre epsilon pour la grille moyenne. Il faut attendre environ 10000 itérations avant que l'agent réussisse à gagner de facon consistente. En moyenne, il faut 0.037 secs pour jouer un jeu (sans visualisation), donc cela prend environ 6 minutes pour entrainer l'agent à jouer à ce jeu et un peu plus de 10 minutes pour qu'il devienne imbattable. 
 
 <p align="center">
 <img src="plot_avg_score_over_100_vs_epsilon_mediumGrid.png">
 </p>
 
-On a enregistré certaines parties à intervalles reguliers pour visualiser l'amélioration au cours de l'entrainement. Voici quelques parties enregistrées: 
+On a enregistré certaines parties à intervalles réguliers pour visualiser l'amélioration au cours de l'entrainement. Voici quelques parties enregistrées: 
 
 - après 2400 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9):
 
@@ -146,15 +145,23 @@ On a enregistré certaines parties à intervalles reguliers pour visualiser l'am
 <img src="capsuleClassic_frame_00000000.png">
 </p>
 
-Pour remédier à ce problème d'apprentissage dans des environnements à grand nombre d'états, nous devons avoir recours à des méthodes d'approximation. Dans le cours de UC Berkeley, une méthode d'approximation linéaire utilisant des "features" est utilisée (cf. livre de Barto and Sutton chapitre 9.4). Ces méthodes permettent de réduire le nombre d'état que l'agent doit explorer pour apprendre à jouer. Elles permettent de trier l'information pertinente. Par exemple, sans approximation, si la même configuration des acteurs (exemple: pacman entouré de 2 fantômes) qui a déjà été "apprise" à un endroit du labyrinthe se reproduit à un autre endroit, elle devra être réapprise de nouveau étant considerée comme un état à priori différent pour l'agent. L'utilisation de features du type "présence de fantômes à proximité" permet de s'abstraire de la position spatiale sur la grille et ainsi il suffit d'apprendre à jouer la configuration une fois pour savoir la jouer à d'autres endroits du labyrinthe.  
+### Apprentissage semi-supervisé: Approximate Q-Learning
 
-Q(S,A) est directement calculée à partir des n features fi(S,A), l'entrainement consiste désormais seulement à determiner les coeffient wi au lieu de calculer chaque valeur Q(S,A) pour tous les états du systèmes:
+Pour remédier à ce problème d'apprentissage dans des environnements à grand nombre d'états, nous devons avoir recours à des méthodes d'approximation. Dans le cours de UC Berkeley, une méthode d'approximation linéaire utilisant des "features" est utilisée (cf. livre de Barto and Sutton chapitre 9.4). Ces méthodes permettent de réduire le nombre d'état que l'agent doit explorer pour apprendre à jouer. Elles permettent de trier l'information pertinente. Par exemple, sans approximation, si la même configuration des acteurs (exemple: pacman entouré de 2 fantômes) qui a déjà été "apprise" à un endroit du labyrinthe se reproduit à un autre endroit, elle devra être réapprise de nouveau étant considérée comme un état à priori différent pour l'agent. L'utilisation de features du type "présence de fantômes à proximité" permet de s'abstraire de la position spatiale sur la grille et ainsi il suffit d'apprendre à jouer la configuration une fois pour savoir la jouer à d'autres endroits du labyrinthe.  
+
+Q(S,A) est directement calculée à partir des n features fi(S,A), l'entraînement consiste désormais seulement à déterminer les coeffient wi au lieu de calculer chaque valeur Q(S,A) pour tous les états du systèmes:
 
 <img src="equ_7_Q.png">
 
 <img src="equ_1_w.png">
 
-En utilisant les features "#-of-ghosts-1-step-away","eats-food", et "closest food" qui indiquent a pacman combien de fantomes sont a proximite, si les pastilles proches peuvent etre mange sans danger, et a quelle distance se trouve les prochaines pastilles, l'entrainement prend seulement environ 50 iterations meme sur un grand labyrinthe.
+En utilisant les features "#-of-ghosts-1-step-away","eats-food", et "closest food" qui indiquent à pacman combien de fantômes sont à proximité, si les pastilles proches peuvent être mangé sans danger, et à quelle distance se trouve les prochaines pastilles, l'entrainement prend seulement quelques itérations même sur un grand labyrinthe.
+
+Mais cela revient à donner des directives à pacman, et donc il ne s'agit plus d'apprentissage non-supervisé. 
+
+De la même manière mais sans donner de directives à Pacman, l'utilisation des réseaux de neuronnes est devenue populaire comme solution d'approximation en reinforcement learning depuis le succès de DeepMind, qui a démontré l'apprentissage de jeux Atari à partir des images de l'écran en utilisant des Convolutional Neural Network comme fonction d'approximation pour les agents (https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf).
+
+Nous n'avons pas eu le temps de faire fonctionner de façon efficace un réseau de neuronne pour entrainer Pacman. Nous y travaillons ... D'autres personnes ont publié leurs programmes sur github, notamment https://github.com/tychovdo/PacmanDQN, qui réussit à entraîner Pacman à partir des images de l'écran.  
 
 
 
