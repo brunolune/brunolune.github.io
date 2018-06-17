@@ -64,7 +64,8 @@ Le parametre alpha introduit est le coefficient d'apprentissage. Nous remarquons
 <img src="equ_5_Q.png">
 Le choix des actions se fait par une regle de conduite "epsilon-greedy" pour trouver un compromis entre l'exploitation de l'experience accumulee et l'exploration de nouveaux etats. En effet, la plupart du temps (1-epsilon fois en moyenne), l'action validee comme etant la meilleure par l'experience acquise indiquee par la function Q(S,A) sera choisie. Et certaine fois (epsilon fois en moyenne), une action au hasard sera choisie pour favoriser le maintien de l'exploration de possible nouvelle strategie. 
 
-Une demonstration du fonctionnement de cet algorithme peut etre faite en utilisant gridworld:
+Une démonstration du fonctionnement de cet algorithme peut être faite en utilisant gridworld:
+
 python gridworld.py -a q -k 5 -m
 
 
@@ -74,11 +75,19 @@ Interessons nous maintenant a l'utilisation de cet algorithme pour le jeu de Pac
 
 On a expérimenté avec plusieurs labyrinthes:
 
-- La petite grille (smallGrid), qui comporte 1 seul fantôme, 18 positions et 2 pastilles initialement. Le nombre de différentes configurations possibles de pacman, du fantome et des pastilles, est de 1224 configurations. En pratique, le nombre de configurations, qui se présentent à l'agent, est bien moindre (~<50?). En moyenne, il faut secs pour jouer un jeu,
+- La petite grille (smallGrid), qui comporte un seul fantôme, 18 positions et 2 pastilles initialement. Le nombre de différentes configurations possibles de pacman, du fantome et des pastilles, est de 1224 configurations. En pratique, le nombre de configurations, qui se présentent à l'agent, est bien moindre (~<50?).
 
 <p align="center">
 <img src="smallGrid_frame_00000000.png">
 </p>
+
+En moyenne, il faut 0.012 secs pour jouer un jeu (sans visualisation): en seulement environ 2000 itérations et moins de 30 secs, Pacman sort victorieux pratiquement à chaque fois.
+
+<p align="center">
+<img src="video7_output7_3054.gif">
+</p>
+
+Le graphe ci-dessous montre une etude de la dependence du score moyen en fonction du parametre epsilon: plus epsilon est grand plus on favorise l'exploration de nouvelle actions au detriment de celles apprises. 
 
 <p align="center">
 <img src="plot_avg_score_over_100_vs_epsilon_smallGrid.png">
@@ -90,38 +99,43 @@ On a expérimenté avec plusieurs labyrinthes:
 <img src="mediumGrid_frame_00000000.png">
 </p>
 
+Sur la grille moyenne (mediumGrid), nous avons fait jouer le jeu de pacman 24100 fois par l'agent, dont 24000 jeux d'entrainement et 100 jeux de test pendant lesquels alpha=0.
+
+Le graphe ci-dessous montre une étude de la dépendence du score moyen en fonction du paramètre epsilon pour la grille moyenne. Il faut attendre environ 10000 itérations avant que l'agent réussisse à gagner de facon consistente.
+
 <p align="center">
 <img src="plot_avg_score_over_100_vs_epsilon_mediumGrid.png">
 </p>
 
-Sur la grille moyenne (mediumGrid), nous avons fait jouer le jeu de pacman 24100 fois par l'agent, dont 24000 jeux d'entrainement et 100 jeux de test pendant lesquels alpha=0. On a enregistre certaines parties a intervalles reguliers pour visualiser l'amelioration au cours de l'entrainement. Voici quelques parties enregistrees: 
 
 
-apres 2400 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9):
+On a enregistre certaines parties a intervalles reguliers pour visualiser l'amelioration au cours de l'entrainement. Voici quelques parties enregistrees: 
+
+- après 2400 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9):
 
 <p align="center">
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video1_output2_2400.gif" >
 </p>
 
-apres 4821 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence a se degourdir mais perd toujours.
+- après 4821 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence a se degourdir mais perd toujours.
 
 <p align="center">
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video6_output2_4821.gif" >
 </p>
 
-apres 9641 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence a gagner des parties.
+- après 9641 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence a gagner des parties.
 
 <p align="center">
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video2_output2_9641.gif" >
 </p>
 
-apres 24024 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman est trop fort!
+- après 24024 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman est trop fort!
 
 <p align="center">
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video5_output2_24024.gif" >
 </p>
 
-apres 24096 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), personne n'est infaillible!
+- après 24096 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), personne n'est infaillible!
 
 <p align="center">
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video4_output2_24096.gif" >
@@ -135,7 +149,7 @@ apres 24096 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), personn
 <img src="capsuleClassic_frame_00000000.png">
 </p>
 
-Pour remédier à ce problème d'apprentissage dans des environnement à grand nombre d'états, nous devons avoir recours à des méthodes d'approximation. Dans le cours de UC Berkeley, une méthode d'approximation linéaire utilisant des "features" est utilisée (cf. livre de Barto and Sutton chapitre 9.4). Ces méthodes permettent de réduire le nombre d'état que l'agent doit explorer pour apprendre à jouer. elles permettent de trier l'information pertinente. Par exemple, sans approximation, si la même configuration des acteurs (exemple: pacman entouré de 2 fantômes) qui a deja ete apprise a un endroit du labyrinthe se reproduit a un autre endroit, elle devra être reapprise de nouveau etant consideree comme un etat a priori different pour l'agent. L'utilisation de features du type "presence de fantomes a proximite" permet de s'abstraire de la position spatiale sur la grille et ainsi il suffit d'apprendre a jouer la configuration une fois pour savoir la jouer a d'autres endroits du labyrinthe.  
+Pour remédier à ce problème d'apprentissage dans des environnement à grand nombre d'états, nous devons avoir recours à des méthodes d'approximation. Dans le cours de UC Berkeley, une méthode d'approximation linéaire utilisant des "features" est utilisée (cf. livre de Barto and Sutton chapitre 9.4). Ces méthodes permettent de réduire le nombre d'état que l'agent doit explorer pour apprendre à jouer. Elles permettent de trier l'information pertinente. Par exemple, sans approximation, si la même configuration des acteurs (exemple: pacman entouré de 2 fantômes) qui a deja ete apprise a un endroit du labyrinthe se reproduit a un autre endroit, elle devra être reapprise de nouveau etant consideree comme un etat a priori different pour l'agent. L'utilisation de features du type "presence de fantomes a proximite" permet de s'abstraire de la position spatiale sur la grille et ainsi il suffit d'apprendre a jouer la configuration une fois pour savoir la jouer a d'autres endroits du labyrinthe.  
 
 You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
