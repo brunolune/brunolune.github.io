@@ -150,7 +150,9 @@ Pour remédier à ce problème d'apprentissage dans des environnements à grand 
 
 Q(S,A) est directement calculée à partir des features, l'entrainement consiste désormais seulement à determiner les coeffient wi:
 
+<img src="equ_7_Q.png">
 
+<img src="equ_1_w.png">
 
 
 
