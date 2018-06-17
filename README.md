@@ -81,7 +81,7 @@ On a expérimenté avec plusieurs labyrinthes:
 <img src="smallGrid_frame_00000000.png">
 </p>
 
-En moyenne, il faut 0.012 secs pour jouer un jeu (sans visualisation): en seulement environ 2000 itérations et moins de 30 secs, Pacman sort victorieux pratiquement à chaque fois.
+En moyenne, il faut 0.012 secs pour jouer un jeu (sans visualisation): en seulement environ 2000 itérations et moins de 30 secs, Pacman sort victorieux pratiquement à chaque fois (sur un Intel® Core™ i7-4500U CPU @ 1.80GHz × 4; 8Gb RAM).
 
 <p align="center">
 <img src="video7_output7_3054.gif">
@@ -93,7 +93,7 @@ Le graphe ci-dessous montre une etude de la dependence du score moyen en fonctio
 <img src="plot_avg_score_over_100_vs_epsilon_smallGrid.png">
 </p>
 
-- la grille moyenne (mediumGrid), qui comporte 1 seul fantome, 32 positions accessibles et 4 pastilles initialement. En tout, 15872 configurations possibles mais en realite seulement un nombre bien moindre rencontrees par l'agent (~<100?). 
+- la grille moyenne (mediumGrid), qui comporte 1 seul fantôme, 32 positions accessibles et 4 pastilles initialement. En tout, 15872 configurations possibles mais en realité seulement un nombre bien moindre rencontrées par l'agent (~<100?). 
 
 <p align="center">
 <img src="mediumGrid_frame_00000000.png">
@@ -101,15 +101,13 @@ Le graphe ci-dessous montre une etude de la dependence du score moyen en fonctio
 
 Sur la grille moyenne (mediumGrid), nous avons fait jouer le jeu de pacman 24100 fois par l'agent, dont 24000 jeux d'entrainement et 100 jeux de test pendant lesquels alpha=0.
 
-Le graphe ci-dessous montre une étude de la dépendence du score moyen en fonction du paramètre epsilon pour la grille moyenne. Il faut attendre environ 10000 itérations avant que l'agent réussisse à gagner de facon consistente.
+Le graphe ci-dessous montre une étude de la dépendence du score moyen en fonction du paramètre epsilon pour la grille moyenne. Il faut attendre environ 10000 itérations avant que l'agent réussisse à gagner de facon consistente. En moyenne, il faut 0.037 secs pour jouer un jeu (sans visualisation), donc cela prend environ 6 minutes pour entrainer l'agent à jouer à ce jeu et un peu plus de 10 minutes pour qu'il devienne imbattable. 
 
 <p align="center">
 <img src="plot_avg_score_over_100_vs_epsilon_mediumGrid.png">
 </p>
 
-
-
-On a enregistre certaines parties a intervalles reguliers pour visualiser l'amelioration au cours de l'entrainement. Voici quelques parties enregistrees: 
+On a enregistré certaines parties à intervalles reguliers pour visualiser l'amélioration au cours de l'entrainement. Voici quelques parties enregistrées: 
 
 - après 2400 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9):
 
@@ -117,19 +115,19 @@ On a enregistre certaines parties a intervalles reguliers pour visualiser l'amel
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video1_output2_2400.gif" >
 </p>
 
-- après 4821 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence a se degourdir mais perd toujours.
+- après 4821 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence à se dégourdir mais perd toujours.
 
 <p align="center">
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video6_output2_4821.gif" >
 </p>
 
-- après 9641 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence a gagner des parties.
+- après 9641 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman commence à gagner des parties.
 
 <p align="center">
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video2_output2_9641.gif" >
 </p>
 
-- après 24024 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman est trop fort!
+- après 24024 parties d'entraînement (epsilon=0.05, alpha=0.2, gamma=0.9), pacman est devenu trop fort!
 
 <p align="center">
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video5_output2_24024.gif" >
@@ -142,8 +140,7 @@ On a enregistre certaines parties a intervalles reguliers pour visualiser l'amel
 </p>
 
 
-- le labyrinthe "capsuleClassic", qui a 3 fantômes, 56 positions accessibles ,24 pastilles et 3 pastilles magiques (capsules). Le nombre de configuration possible est trés grand, mais le nombre de configurations que rencontrent pacman beaucoup plus limité (~<1000?). Malgre tout, le nombre de parties à jouer pour explorer les configurations jusqu'à trouver une stratégie pour gagner le jeu devient beaucoup trop important pour être calculer rapidement. En outre, utilisant un laptop avec 8Gb de RAM, nous avons rapidement été limité par la memoire vive après seulement environ 20000 parties jouées. A ce stade, le pacman n'a pas encore pu apprendre à gagner une partie. 
-
+- le labyrinthe "capsuleClassic", qui a 3 fantômes, 56 positions accessibles ,24 pastilles et 3 pastilles magiques (capsules). Le nombre de configuration possible est trés grand, mais le nombre de configurations que rencontrent pacman,est beaucoup plus limité (~<1000?). Malgré tout, le nombre de parties à jouer pour explorer les configurations jusqu'à trouver une stratégie pour gagner le jeu devient beaucoup trop important pour que les calculs aboutissent rapidement. En outre, utilisant un laptop avec 8Gb de RAM, nous avons rapidement été limité par la memoire vive après seulement environ 20000 parties jouées. A ce stade, le pacman n'a pas encore pu apprendre à gagner une partie. 
 
 <p align="center">
 <img src="capsuleClassic_frame_00000000.png">
