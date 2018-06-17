@@ -72,7 +72,10 @@ python gridworld.py -a q -k 5 -m
 
 Interessons nous maintenant a l'utilisation de cet algorithme pour le jeu de Pacman:
 
-Plusieurs labyrinthes
+On a experimente avec plusieurs labyrinthes:
+La petite grille qui comporte 1 seul fantome et 18 positions accessibles ainsi que 4 pasdtilles initialement. Le nombre de differentes configurations possibles de pacman, du fantome et des pastilles, est de 1224 configurations. En pratique, le nombre de configuration qui se presente a l'agent est bien moindre.
+
+<img src="smallGrid_frame_00000.png">
 
 Nous avons fait rejouer le jeu de pacman 24100 fois par l'agent, dont 24000 jeux d'entrainement et 100 jeux de test pendant lesquels alpha=0. On a enregistre certaines parties a intervalles reguliers pour visualiser l'entrainement. Voici quelques parties enregistrees sur une grille moyenne. 
 
