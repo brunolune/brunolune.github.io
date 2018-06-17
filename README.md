@@ -1,4 +1,4 @@
-## Apprendre l'apprentissage renforcé avec le Pacman d'UC Berkeley
+# Apprendre l'apprentissage renforcé avec le Pacman d'UC Berkeley
 
 <p align="center">
   <img src="http://ai.berkeley.edu/images/pacman_game.gif" alt="pacman_gif"/>
@@ -32,7 +32,7 @@ Ainsi, une règle de conduite dite "avide" (greedy policy en anglais) consistera
 
 <img src="equ_2_pi.png">
 
-# Value Iteration ,Dynamic Programming, Iterative Policy Evaluation
+## Value Iteration ,Dynamic Programming, Iterative Policy Evaluation
 
 La première partie du cours de UC Berkeley est dediée à l'implémentation de l'algorithme d'itération de la valeur des états dans le cadre d'un environnement connu: les probabilités de transitions entre états sont connues et la méthode de Dynamic Programming consiste à faire converger la fonction Q(S,A) vers sa vraie valeur par un processus itératif. Une itération passe en revue la totalité des états et actualise la valeur de Q(S,A) à partir des valeurs des proches voisins. La valeur de Q s'ajuste de proche en proche à partir des valeurs connues (terminal states) au fur et à mesure des itérations. La convergence est rapide sur des petite grilles d'états. Cette méthode devient trop couteuse en terme de puissance de calcul lorsque le nombre d'états augmente.
 
@@ -145,7 +145,7 @@ On a enregistré certaines parties à intervalles réguliers pour visualiser l'a
 <img src="capsuleClassic_frame_00000000.png">
 </p>
 
-### Apprentissage semi-supervisé: Approximate Q-Learning
+## Apprentissage semi-supervisé: Approximate Q-Learning
 
 Pour remédier à ce problème d'apprentissage dans des environnements à grand nombre d'états, nous devons avoir recours à des méthodes d'approximation. Dans le cours de UC Berkeley, une méthode d'approximation linéaire utilisant des "features" est utilisée (cf. livre de Barto and Sutton chapitre 9.4). Ces méthodes permettent de réduire le nombre d'état que l'agent doit explorer pour apprendre à jouer. Elles permettent de trier l'information pertinente. Par exemple, sans approximation, si la même configuration des acteurs (exemple: pacman entouré de 2 fantômes) qui a déjà été "apprise" à un endroit du labyrinthe se reproduit à un autre endroit, elle devra être réapprise de nouveau étant considérée comme un état à priori différent pour l'agent. L'utilisation de features du type "présence de fantômes à proximité" permet de s'abstraire de la position spatiale sur la grille et ainsi il suffit d'apprendre à jouer la configuration une fois pour savoir la jouer à d'autres endroits du labyrinthe.  
 
@@ -158,6 +158,8 @@ Q(S,A) est directement calculée à partir des n features fi(S,A), l'entraîneme
 En utilisant les features "#-of-ghosts-1-step-away","eats-food", et "closest food" qui indiquent à pacman combien de fantômes sont à proximité, si les pastilles proches peuvent être mangé sans danger, et à quelle distance se trouve les prochaines pastilles, l'entrainement prend seulement quelques itérations même sur un grand labyrinthe.
 
 Mais cela revient à donner des directives à pacman, et donc il ne s'agit plus d'apprentissage non-supervisé. 
+
+## Apprentissage non-supervisé: Deep Q-Learning
 
 De la même manière mais sans donner de directives à Pacman, l'utilisation des réseaux de neuronnes est devenue populaire comme solution d'approximation en reinforcement learning depuis le succès de DeepMind, qui a démontré l'apprentissage de jeux Atari à partir des images de l'écran en utilisant des Convolutional Neural Network comme fonction d'approximation pour les agents (https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf).
 
