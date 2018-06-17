@@ -95,7 +95,9 @@ apres 24096 parties d'entrainement (epsilon=0.05, alpha=0.2, gamma=0.9), personn
 
 
 
-<img src="plot_avg_score_over_100_vs_epsilon.png">
+<img src="plot_avg_score_over_100_vs_epsilon_mediumGrid.png">
+
+<img src="plot_avg_score_over_100_vs_epsilon_smallGrid.png">
 
 
 On voit donc la necessite d'utiliser des methodes d'approximation ...
