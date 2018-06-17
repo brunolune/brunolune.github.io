@@ -58,15 +58,18 @@ Sur cet exemple, discount=0.9, noise=0.2, la route optimale devient le passage l
 La deuxième partie du cours de Berkeley s'intéresse aux méthodes de reinforcement learning dans des environnement inconnus, ou l'agent doit apprendre à évoluer au fur et a mesure de son expérience avec l'environnement. On reste dans un paradigme de MDP, mais l'environnement n'étant pas connu, on a plus la possibilité de calculer la valeur des états à partir des autres valeurs d'états connus. L'agent va explorer l'environnement autour de lui et accumuler son expérience dans la fonction Q(S,A) actualisée au fur et a mesure de son cheminement.
 
 Le premier algorithme d'apprentissage que lon doit implémenter dans les programmes de UC Berkeley est l'algorithme de Q-learning (off policy Time Difference TD(0), chapitre 6.5 dans le livre de Sutton et Barto):
+
 <img src="equ_4_Q.png">
+
 Le paramètre alpha introduit, est le coefficient d'apprentissage. Nous remarquons en passant que l'actualisation de la fonction Q(S,A) s'obtient ainsi par intégration progressive des nouvelles valeurs(factor alpha =0.2 typically). On fait tendre Q(S,A) vers la nouvelle estimation de Q(S,A) que l'on vient d'obtenir:
+
 <img src="equ_5_Q.png">
+
 Le choix des actions se fait par une règle de conduite "epsilon-greedy" pour trouver un compromis entre l'exploitation de l'expérience accumulée et l'exploration de nouveaux états. En effet, la plupart du temps (1-epsilon fois en moyenne), l'action validée comme étant la meilleure par l'expérience acquise indiquée par la function Q(S,A) sera choisie. Et certaine fois (epsilon fois en moyenne), une action au hasard sera choisie pour favoriser le maintien de l'exploration de possibles nouvelles stratégies. 
 
 Une démonstration du fonctionnement de cet algorithme peut être faite en utilisant gridworld:
 
 python gridworld.py -a q -k 5 -m
-
 
 <img src="q-learning.png">
 
@@ -137,7 +140,6 @@ On a enregistré certaines parties à intervalles réguliers pour visualiser l'a
 <p align="center">
   <img src="https://github.com/brunolune/brunolune.github.io/blob/master/video4_output2_24096.gif" >
 </p>
-
 
 - le labyrinthe "capsuleClassic", qui a 3 fantômes, 56 positions accessibles ,24 pastilles et 3 pastilles magiques (capsules). Le nombre de configuration possible est trés grand, mais le nombre de configurations que rencontrent pacman est beaucoup plus limité (~<1000?). Malgré tout, le nombre de parties à jouer pour explorer les configurations jusqu'à trouver une stratégie pour gagner le jeu devient beaucoup trop important pour que les calculs aboutissent rapidement. En outre, utilisant un laptop avec 8Gb de RAM, nous avons rapidement été limité par la memoire vive après seulement environ 20000 parties jouées. A ce stade, le pacman n'a pas encore pu apprendre à gagner une partie. 
 
