@@ -103,7 +103,7 @@ Le graphe ci-dessous montre une étude de la dépendance du score moyen en fonct
 
 Sur la grille moyenne (mediumGrid), nous avons fait jouer le jeu de pacman 24100 fois par l'agent, dont 24000 jeux d'entrainement et 100 jeux de test pendant lesquels alpha=0.
 
-Le graphe ci-dessous montre une étude de la dépendance du score moyen en fonction du paramètre epsilon pour la grille moyenne. Il faut attendre environ 10000 itérations avant que l'agent réussisse à gagner de facon consistente. En moyenne, il faut 0.037 secs pour jouer un jeu (sans visualisation), donc cela prend environ 6 minutes pour entrainer l'agent à jouer à ce jeu et un peu plus de 10 minutes pour qu'il devienne imbattable. 
+Le graphe ci-dessous montre une étude de la dépendance du score moyen en fonction du paramètre epsilon pour la grille moyenne. Il faut attendre environ 10000 itérations avant que l'agent réussisse à gagner de façon consistente. En moyenne, il faut 0.037 secs pour jouer un jeu (sans visualisation), donc cela prend environ 6 minutes pour entrainer l'agent à jouer à ce jeu et un peu plus de 10 minutes pour qu'il devienne imbattable. 
 
 <p align="center">
 <img src="plot_avg_score_over_100_vs_epsilon_mediumGrid.png">
@@ -149,7 +149,7 @@ On a enregistré certaines parties à intervalles réguliers pour visualiser l'a
 
 ## Apprentissage semi-supervisé: Approximate Q-Learning
 
-Pour remédier à ce problème d'apprentissage dans des environnements à grand nombre d'états, nous devons avoir recours à des méthodes d'approximation. Dans le cours de UC Berkeley, une méthode d'approximation linéaire utilisant des "features" est utilisée (cf. livre de Barto and Sutton chapitre 9.4). Ces méthodes permettent de réduire le nombre d'états que l'agent doit explorer pour apprendre à jouer. Elles permettent de trier l'information pertinente. Par exemple, sans approximation, si la même configuration des acteurs (exemple: pacman entouré de 2 fantômes) qui a déjà été "apprise" à un endroit du labyrinthe se reproduit à un autre endroit, elle devra être réapprise de nouveau étant considérée comme un état à priori différent pour l'agent. L'utilisation de features du type "présence de fantômes à proximité" permet de s'abstraire de la position spatiale sur la grille et ainsi il suffit d'apprendre à jouer la configuration une fois pour savoir la jouer à d'autres endroits du labyrinthe.  
+Pour remédier à ce problème d'apprentissage dans des environnements à grand nombre d'états, nous devons avoir recours à des méthodes d'approximation. Dans le cours de UC Berkeley, une méthode d'approximation linéaire utilisant des "features" est utilisée (cf. livre de Barto and Sutton chapitre 9.4). Ces méthodes permettent de réduire le nombre d'états que l'agent doit explorer pour apprendre à jouer. Elles permettent de trier l'information pertinente. Par exemple, sans approximation, si la même configuration des acteurs (exemple: pacman entouré de 2 fantômes), qui a déjà été "apprise" à un endroit du labyrinthe, se reproduit à un autre endroit, elle devra être réapprise de nouveau étant considérée comme un état à priori différent pour l'agent. L'utilisation de features du type "présence de fantômes à proximité" permet de s'abstraire de la position spatiale sur la grille et ainsi il suffit d'apprendre à jouer la configuration une fois pour savoir la jouer à d'autres endroits du labyrinthe.  
 
 Q(S,A) est directement calculée à partir des n features fi(S,A), l'entraînement consiste désormais seulement à déterminer les coeffient wi au lieu de calculer chaque valeur Q(S,A) pour tous les états du systèmes:
 
@@ -163,45 +163,7 @@ Mais cela revient à donner des directives à pacman, et donc il ne s'agit plus 
 
 ## Apprentissage non-supervisé: Deep Q-Learning
 
-De la même manière mais sans donner de directives à Pacman, l'utilisation des réseaux de neurones est devenue populaire comme solution d'approximation en reinforcement learning depuis le succès de DeepMind, qui a démontré l'apprentissage de jeux Atari à partir des images de l'écran en utilisant des Convolutional Neural Network comme fonction d'approximation pour les agents (https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf).
+Dans le même esprit mais sans donner de directives à Pacman, l'utilisation des réseaux de neurones est devenue populaire comme solution d'approximation en reinforcement learning depuis le succès de DeepMind, qui a démontré l'apprentissage de jeux Atari à partir des images de l'écran en utilisant des Convolutional Neural Network comme fonction d'approximation pour les agents (https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf).
 
 Nous n'avons pas eu le temps de faire fonctionner de façon efficace un réseau de neuronne pour entrainer Pacman. Nous y travaillons ... D'autres personnes ont publié leurs programmes sur github, notamment https://github.com/tychovdo/PacmanDQN, qui réussit à entraîner Pacman à partir des images de l'écran.  
 
-
-
-
-You can use the [editor on GitHub](https://github.com/brunolune/brunolune.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/brunolune/brunolune.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
