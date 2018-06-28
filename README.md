@@ -165,5 +165,5 @@ Mais cela revient à donner des directives à pacman, et donc il ne s'agit plus 
 
 Dans le même esprit mais sans donner de directives à Pacman, l'utilisation des réseaux de neurones est devenue populaire comme solution d'approximation en reinforcement learning depuis le succès de DeepMind, qui a démontré l'apprentissage de jeux Atari à partir des images de l'écran en utilisant des Convolutional Neural Network comme fonction d'approximation pour les agents (https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf).
 
-Nous n'avons pas eu le temps de faire fonctionner de façon efficace un réseau de neuronne pour entrainer Pacman. Nous y travaillons ... D'autres personnes ont publié leurs programmes sur github, notamment https://github.com/tychovdo/PacmanDQN, qui réussit à entraîner Pacman à partir des images de l'écran.  
+Nous n'avons pas eu le temps de faire fonctionner de façon efficace un réseau de neuronne pour entrainer Pacman. Nous y travaillons ... D'autres personnes ont publié leurs programmes sur github, notamment https://github.com/tychovdo/PacmanDQN, qui réussit à entraîner Pacman en utilisant un Convolutional Neural Network comme fonction d'approximation.  
 
