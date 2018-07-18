@@ -4,7 +4,7 @@
   <img src="http://ai.berkeley.edu/images/pacman_game.gif" alt="pacman_gif"/>
 </p>
 
-Dans le cadre du bootcamp Data Science de Paris Code avec Datascientest.com, l'ambition de ce projet était de se familiariser avec les méthodes du reinforcement learning (RL) en entrainant un "agent" à jouer à un jeu simple.
+Dans le cadre du bootcamp Data Science de Paris Code avec Datascientest.com, l'ambition de ce projet était de se familiariser avec les méthodes du reinforcement learning (RL) en entrainant un "agent" à jouer à un jeu simple (code à https://github.com/brunolune/BrunoLearnRL).
 On a étudié le livre de Sutton et Barto, "Reinforcement Learning: an introduction" (http://incompleteideas.net/book/bookdraft2018jan1.pdf) pour s'initier à la théorie et aux méthodes de RL.
 Notre choix de jeu s'est arrêté sur le Pacman du cours "Intro to AI (CS188)" de UC Berkeley (http://ai.berkeley.edu/reinforcement.html) pour ses qualités pédagogiques: 
 - le développement des programmes et algorithmes de la partie reinforcement learning suit bien l'élaboration des concepts et méthodes du livre de Barto et Sutton.
